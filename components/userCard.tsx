@@ -17,7 +17,7 @@ export default function UserCard({ user }: userCardProp) {
 
             <CardContent className="space-y-1 text-sm text-gray-600">
                 <p>{user.email}</p>
-                <p>{user.companyName}</p>
+                <p>{user.company.name}</p>
             </CardContent>
 
             <CardFooter className="pt-4">

@@ -4,7 +4,9 @@ export interface User {
     id: number;
     name: string;
     email: string;
-    companyName: string;
+    company: {
+        name: string;
+    }
 }
 export interface Post {
     id: number;

@@ -5,9 +5,11 @@ import {
   InputGroupAddon,
   InputGroupInput,
 } from "@/components/ui/input-group"
-import UserCard from "@/components/ui/UserCard";
+import UserCard from "@/components/userCard";
 import { useUserStore } from "@/lib/store";
 import { useState, useEffect } from "react";
+import { LoadingState } from "@/components/loadingState";
+import { ErrorState } from "@/components/errorState";
 
 
 export default function UsersPage() {
@@ -44,7 +46,13 @@ export default function UsersPage() {
           <InputGroupInput placeholder="Search users..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
         </InputGroup>
         <p className="text-gray-500 text-[16px]">Found {users.length} users</p>
-
+        {isLoading && <LoadingState />}
+        {hasError && <ErrorState />}
+        {!isLoading && !hasError && filteredUsers().length === 0 && (
+          <div className="flex items-center justify-center py-12">
+            <p className="text-gray-500 text-lg">No users found</p>
+          </div>
+        )}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-[32px] gap-y-[40px]">
           {filteredUsers().map((user) => (
             <UserCard key={user.id} user={user} />
