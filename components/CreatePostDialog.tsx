@@ -20,7 +20,6 @@ import { postSchema, PostFormValues } from "@/lib/verification";
 export function CreatePostDialog() {
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const { addPost } = useUserStore();
-
     const {
         register,
         handleSubmit,
@@ -33,7 +32,6 @@ export function CreatePostDialog() {
             body: "",
         }
     });
-
     const onSubmit = (data: PostFormValues) => {
         addPost({
             id: Date.now(),
@@ -43,7 +41,6 @@ export function CreatePostDialog() {
         reset();
         setIsDialogOpen(false);
     };
-
     return (
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
             <DialogTrigger asChild>
