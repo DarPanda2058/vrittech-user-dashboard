@@ -1,6 +1,6 @@
 "use client"
 import { useUserStore } from "@/lib/store"
-import PostCard from "@/components/PostCard";
+import { PostCard } from "@/components/PostCard";
 import { useEffect, useState } from "react"
 import { useParams } from "next/navigation";
 import { LoadingState } from "@/components/LoadingState";

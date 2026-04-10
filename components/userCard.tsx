@@ -6,7 +6,7 @@ interface userCardProp {
     user: User
 }
 
-export default function UserCard({ user }: userCardProp) {
+export function UserCard({ user }: userCardProp) {
     return (
         <Card className="mt-4 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300">
             <CardHeader className="pb-2">

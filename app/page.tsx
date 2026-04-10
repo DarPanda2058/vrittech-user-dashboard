@@ -5,7 +5,7 @@ import {
   InputGroupAddon,
   InputGroupInput,
 } from "@/components/ui/input-group"
-import UserCard from "@/components/UserCard";
+import { UserCard } from "@/components/UserCard";
 import { useUserStore } from "@/lib/store";
 import { useState, useEffect } from "react";
 import { LoadingState } from "@/components/LoadingState";

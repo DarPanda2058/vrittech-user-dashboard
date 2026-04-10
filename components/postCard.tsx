@@ -5,7 +5,7 @@ interface postCardProp {
     post: Post
 }
 
-export default function PostCard({ post }: postCardProp) {
+export function PostCard({ post }: postCardProp) {
     return (
         <Card className="mt-4 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300">
             <CardHeader className="pb-2">
