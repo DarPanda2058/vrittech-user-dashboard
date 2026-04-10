@@ -19,6 +19,17 @@ export default function UsersPage() {
     fetchUser();
   }, [fetchUser]);
 
+  const filteredUsers = () => {
+    if (!searchQuery.trim()) return users;
+
+    const query = searchQuery.toLowerCase();
+    return users.filter((user) =>
+      user.name.toLowerCase().includes(query) ||
+      user.email.toLowerCase().includes(query)
+    );
+  }
+
+
   return (
     <div className={`min-h-screen w-full bg-[#FAFAFC] flex flex-col items-center py-16 px-6`}>
       <div className="max-w-7xl w-full">
@@ -30,12 +41,12 @@ export default function UsersPage() {
           <InputGroupAddon>
             <Search />
           </InputGroupAddon>
-          <InputGroupInput placeholder="Search users..." />
+          <InputGroupInput placeholder="Search users..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
         </InputGroup>
-        <p className="text-gray-500 text-[16px]">Found 10 users</p>
+        <p className="text-gray-500 text-[16px]">Found {users.length} users</p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-[32px] gap-y-[40px]">
-          {users.map((user) => (
+          {filteredUsers().map((user) => (
             <UserCard key={user.id} user={user} />
           ))}
         </div>
