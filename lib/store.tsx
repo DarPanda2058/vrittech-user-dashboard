@@ -47,7 +47,11 @@ export const useUserStore = create<StateStore>((set) => ({
         try {
             const response = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
             const data = await response.json();
-            set({ posts: data });
+            if (Array.isArray(data)) {
+                set({ posts: data });
+            } else {
+                set({ posts: [], hasError: true });
+            }
         } catch (error) {
             set({ hasError: true })
         } finally {
@@ -55,7 +59,7 @@ export const useUserStore = create<StateStore>((set) => ({
         }
     },
     addPost: (post: Post) => {
-        set((state) => ({ posts: [...state.posts, post] }));
+        set((state) => ({ posts: [post, ...state.posts] }));
     }
 
 }))
