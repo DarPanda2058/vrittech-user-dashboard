@@ -5,11 +5,11 @@ import {
   InputGroupAddon,
   InputGroupInput,
 } from "@/components/ui/input-group"
-import UserCard from "../components/UserCard";
+import UserCard from "@/components/userCard";
 import { useUserStore } from "@/lib/store";
 import { useState, useEffect } from "react";
-import { LoadingState } from "../components/LoadingState";
-import { ErrorState } from "../components/ErrorState";
+import { LoadingState } from "@/components/loadingState";
+import { ErrorState } from "@/components/errorState";
 
 
 export default function UsersPage() {

@@ -1,10 +1,10 @@
 "use client"
 import { useUserStore } from "@/lib/store"
-import PostCard from "../../../components/PostCard";
+import PostCard from "@/components/postCard";
 import { useEffect, useState } from "react"
 import { useParams } from "next/navigation";
-import { LoadingState } from "../../../components/LoadingState";
-import { ErrorState } from "../../../components/ErrorState";
+import { LoadingState } from "@/components/loadingState";
+import { ErrorState } from "@/components/errorState";
 import {
     Pagination,
     PaginationContent,
@@ -13,7 +13,7 @@ import {
     PaginationNext,
     PaginationPrevious,
 } from "@/components/ui/pagination";
-import { CreatePostDialog } from "@/components/CreatePostDialog";
+import { CreatePostDialog } from "@/components/createPostDialog";
 
 const POSTS_PER_PAGE = 5;
 
